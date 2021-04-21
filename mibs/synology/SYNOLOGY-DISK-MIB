@@ -10,8 +10,8 @@ synoDisk MODULE-IDENTITY
     LAST-UPDATED "201309110000Z"
     ORGANIZATION "www.synology.com"
     CONTACT-INFO
-         "postal:   Jay Pan
-          email:    jaypan@synology.com"
+         "Synology Inc.
+          Email: snmp@synology.com"
     DESCRIPTION
         "Characteristics of the disk information"
     REVISION     "201309110000Z"
@@ -50,7 +50,7 @@ DiskEntry ::= SEQUENCE {
 
 diskIndex OBJECT-TYPE
     SYNTAX	   Integer32(0..2147483647)
-    MAX-ACCESS	  not-accessible
+    MAX-ACCESS	  read-only
     STATUS	   current
     DESCRIPTION
     "The index of disk table"
@@ -127,7 +127,8 @@ diskCompliance MODULE-COMPLIANCE
     ::= { diskCompliances 1 }
 
 diskGroup OBJECT-GROUP
-    OBJECTS { diskID,
+    OBJECTS { diskIndex,
+              diskID,
               diskModel,
               diskType,
               diskStatus,
